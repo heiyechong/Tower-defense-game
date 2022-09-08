@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -33,7 +34,12 @@ public class Monsters
 }
 public class MonsterManager : MonoBehaviour
 {
-    public Monsters[] monsters;
+    public  Monsters[] monsters;
+    //统计所有波数
+    public static float monsterwaves  = 10;
+    
+    //统计所有的怪物数量
+    public static float monsterCount = 0;
 
     [Header("怪物生成计时器")]
     private float monsterTimer;
@@ -41,8 +47,9 @@ public class MonsterManager : MonoBehaviour
     [Header("波次生成计时器")]
     private float waveTimer;
 
-    [Header("当前是第几波次")]
-    private int waveIndex = 0;
+    [HideInInspector]
+    //当前是第几波次
+    public static int waveIndex = 0;
 
     [Header("怪物生成的位置")]
     private Transform startpro;
@@ -56,6 +63,7 @@ public class MonsterManager : MonoBehaviour
         startpro = GameObject.Find("StartPos").transform;
 
         endpro = GameObject.Find("TargetPos").transform;
+        monsterwaves = monsters.Length;
     }
     private void Update()
     {
@@ -66,6 +74,8 @@ public class MonsterManager : MonoBehaviour
         {
             return;
         }
+
+       
 
         //波次与波次之间的时间间隔
         if (waveTimer > monsters[waveIndex].waveInterval)
@@ -82,6 +92,7 @@ public class MonsterManager : MonoBehaviour
                     //怪物初始化
                     monster.GetComponent<Monster>().SetMonster(monsters[waveIndex].monsterBlood, monsters[waveIndex].monsterSpeed, endpro,monsters[waveIndex].monsterValue);
                     monsterNumber++;
+                    monsterCount++;
                     monsterTimer = 0;
                 }
             }

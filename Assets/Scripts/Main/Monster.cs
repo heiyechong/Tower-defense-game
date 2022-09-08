@@ -8,6 +8,7 @@ public class Monster : MonoBehaviour
     
    public float Blood ;
 
+
     private NavMeshAgent navMeshAgent;
 
     public  Action<Monster> deadEvent;
@@ -40,7 +41,7 @@ public class Monster : MonoBehaviour
             navMeshAgent.isStopped = true;
             deadEvent.Invoke(this);
             Destroy(gameObject, 0.9f);
-
+            MonsterManager.monsterCount--;
         }
         if (Blood >0)
         {

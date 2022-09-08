@@ -53,14 +53,19 @@
     <UnityVersion>2020.3.25f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Second\ScenceOne.cs" />
+    <Compile Include="Assets\Scripts\Main\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Main\ButtonClick.cs" />
     <Compile Include="Assets\Scripts\Main\PaodanScript.cs" />
     <Compile Include="Assets\Scripts\Main\TowAttack.cs" />
     <Compile Include="Assets\Scripts\Main\Monster.cs" />
     <Compile Include="Assets\Scripts\First\FToM.cs" />
+    <Compile Include="Assets\Scripts\Main\GameController.cs" />
+    <Compile Include="Assets\Scripts\Second\SceneTwo.cs" />
     <Compile Include="Assets\Scripts\Main\TargetEvent.cs" />
+    <Compile Include="Assets\Scripts\Main\Victory.cs" />
+    <Compile Include="Assets\Scripts\Second\PublicScript.cs" />
     <Compile Include="Assets\Scripts\Main\MonsterManager.cs" />
-    <Compile Include="Assets\Scripts\Main\CameraMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MOBA and Tower Defense\info.txt" />
